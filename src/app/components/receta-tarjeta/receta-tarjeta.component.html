@@ -1,0 +1,21 @@
+<div class="card-columns">
+    <div class="card animated fadeIn fast" *ngFor="let receta of recetas.obj">
+        <img [src]="receta.imgPath" class="card-img-top" alt="" />
+        <div class="card-body">
+            <h5 class="card-title title">{{ receta.nombre }}</h5>
+            <hr />
+            <p class="card-text">{{ receta.dificultad }}</p>
+            <hr />
+            <p class="card-text">Para {{ receta.cantidadComensales }} comensales.</p>
+            <button type="button" class="btn btn-outline-primary btn-block">
+        Ver más...
+      </button>
+            <!-- <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary ">Ver más link...</a
+      > -->
+        </div>
+    </div>
+</div>
+
+<button (click)="getRecetas()">
+  Obtener data
+</button>

@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="../../../assets/img/logo1.png" width="30" height="30" alt="" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" rounterActive="active" [routerLink]="['home']">Todas las recetas</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" rounterActive="active" [routerLink]="['precios']">Buscar por ingrediente</a>
+            </li>
+            <li class="nav-item" *ngIf="auth.isAuthenticated()">
+                <a class="nav-link" rounterActive="active" [routerLink]="['protegida']">Subir recetas</a>
+            </li>
+            <li class="nav-item" *ngIf="!auth.isAuthenticated()">
+                <a (click)="login()" class="nav-link" rounterActive="active" [routerLink]="['login']">Log in</a>
+            </li>
+            <li class="nav-item" *ngIf="auth.isAuthenticated()">
+                <a (click)="salir()" class="nav-link" rounterActive="active" [routerLink]="['logout']">Log out</a>
+            </li>
+        </ul>
+
+        <div class="form-inline my-2 my-lg-0">
+            <!-- (keyup.enter)="buscarHeroe(buscarTexto.value)" -->
+            <input class="form-control mr-sm-2" type="text" placeholder="Buscar receta" #buscarTexto />
+            <!-- (click)="buscarHeroe(buscarTexto.value)" -->
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="button">
+                Buscar
+            </button>
+        </div>
+    </div>
+</nav>
